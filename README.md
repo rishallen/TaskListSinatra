@@ -10,12 +10,12 @@ You'll be working on this assignment in pairs.
 - Both Group Members: Clone the fork from the previous step into your `project-forks`.  
 - Both Group Members: Switch to the branch you created above.  
 
-## Baseline
+## Baseline Requirements
 **Work together to accomplish this baseline:**
 
 For the baseline you will need to create the following project files:
 - A Gemfile with all of the gems necessary for Sinatra, SQLite, and anything else you want to use (Pry, RSpec, etc).
-- A Sinatra files for your routes, with a root route. This route does not need to render any ERB template.
+- A Sinatra class for your routes, and a root route to start. This route does not need to render any ERB template yet.
 - A config.ru file that runs your Sinatra class; look at the structure in the SinatraSite project for an example.
 
 Additionally you will need to do the following to design and create your database:
