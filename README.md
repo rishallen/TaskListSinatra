@@ -7,9 +7,8 @@ You'll be working on this assignment in pairs.
 - Group Member 1: Clone the **Project Master** repo into your `project-masters` directory.  
 - Group Member 1: Create and push your branch (from your combined initials) to **Project Master**.  
 - Group Member 1: Fork the **Project Master** to your GitHub account.  
-- Both Group Members: Clone the fork from the previous step.  
+- Both Group Members: Clone the fork from the previous step into your `project-forks`.  
 - Both Group Members: Switch to the branch you created above.  
-
 
 ## Baseline
 **Work together to accomplish this baseline:**
@@ -35,7 +34,7 @@ $ bundle exec rackup
 ## Primary Requirements
 - Use a class that will keep track of the low-level database interaction. The responsibility of this class is to create a database connection and also to create the database schema. This class exists already in `lib/database.rb`.
 
-- Create a class that will inherit behavior from the database interaction class that will be responsible for all of the *task* record (row) persistence. This will include inserting new tasks into the database, and selecting existing tasks from the database.
+- Create a class that will inherit behavior from the database interaction class that will be responsible for all of the **task** record (row) persistence. This will include inserting new tasks into the database, and selecting existing tasks from the database.
 
   Each task record will include all of the following. Optional means that the _user_ may choose not to provide this information, but it is still required for your schema:
     - Self-incrementing identifier
