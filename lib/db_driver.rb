@@ -34,6 +34,11 @@ class DBDriver
         next fixed + var_str + orig
       end
 
+      # We also need to make sure that we use PG's sequence data type
+      # because unlike SQLite, it does not integer make primary keys
+      # autoincrement by default.
+      query.gsub!(/integer primary key/i, "SERIAL PRIMARY KEY")
+
       return @db.exec_params(query, args).values
     end
   end
