@@ -42,4 +42,19 @@ class DBDriver
       return @db.exec_params(query, args).values
     end
   end
+
+  def delete_schema
+    case DB_DRIVER
+    when :sqlite3
+      db_file = @db.database_list[0][2] # maybe there's a better way?
+      @db.close unless @db.closed?
+
+      File.delete(db_file)
+    when :pg
+      @db.exec('
+        DROP SCHEMA public CASCADE;
+        CREATE SCHEMA public;
+      ')
+    end
+  end
 end
