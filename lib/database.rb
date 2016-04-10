@@ -9,7 +9,7 @@ module TaskList
 
     def create_schema
       # Put your ruby code here to use the @db variable
-      # to setup your schema in the databas.
+      # to setup your schema in the database.
     end
   end
 end
