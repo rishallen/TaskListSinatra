@@ -23,28 +23,38 @@ module TaskList
         @db.execute(query)
     end
 
-  #   def load!
-  #   puts "Preparing INSERT statements..."
-  #
-  #   insert_statement = <<-INSERTSTATEMENT
-  #     INSERT INTO albums (
-  #       title, description, completed_at
-  #     ) VALUES (
-  #       :title, :description, :completed_at
-  #     );
-  #   INSERTSTATEMENT
-  #
-  #   prepared_statement = db.prepare(insert_statement)
-  #
-  #   # now that we have a prepared statement...
-  #   # let's iterate the csv and use its values to populate our database
-  #   # WE DONT HAVE A CSV YET.. !!!!!!!!!!!!!!!!!!!!!!!!!
-  #   CSV.foreach(FILE_PATH, headers: true) do |row|
-  #     prepared_statement.execute(row.to_h)
-  #   end
-  #
-  #   puts "Data import complete!"
-  # end
+# {big_list => {task[a] => a, task[b] => b, task[c] => c}}
+
+    def create_task(title, description = nil )
+      @db.execute( "INSERT into tasks (title, description) values (?, ?)", title, description)
+    end
+
+    def get_tasks
+      @db.execute( "SELECT * FROM tasks;" )
+    end
+    # insert_statement = <<-INSERTSTATEMENT
+    #   INSERT INTO tasks (
+    #     title, description, completed_at
+    #   )
+    #
+    #   VALUES (
+    #     :title, :description, :completed_at
+    #   );
+    # INSERTSTATEMENT
+
+    # # now that we have a prepared statement...
+    # # let's iterate the csv and use its values to populate our database
+    # # WE DONT HAVE A CSV YET.. !!!!!!!!!!!!!!!!!!!!!!!!!
+    # # CSV.foreach(FILE_PATH, headers: true) do |row|
+    # #   prepared_statement.execute(row.to_h)
+    # # end
+    # puts "Data import complete!"
+
+    #
+    # def setup!
+    #   create_schema!
+    #   # load
+    # end
 
   end
 end
