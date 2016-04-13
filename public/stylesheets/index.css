@@ -1,3 +1,14 @@
-h2 {
-  width: auto;
+table {
+    border-collapse: collapse;
+}
+
+td {
+  padding-right: 20px;
+  padding-left: 10px;
+  height: 25px;
+}
+
+.tableheader td{
+  font-size: 1.2rem;
+  font-weight: 600;
 }
