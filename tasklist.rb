@@ -1,6 +1,8 @@
 require 'sinatra'
 require_relative 'lib/database.rb'
 require_relative 'lib/create_schema.rb'
+require 'date'
+
 # require_relative 'lib/query.rb'
 
 class TaskInput < Sinatra::Base
@@ -33,11 +35,6 @@ class TaskInput < Sinatra::Base
     # Step 4: We tell the browser that it should go to the homepage
     redirect '/'
   end
-
-  # post '/index' do
-  #   @tasks = current_database.get_tasks
-  #   erb :index
-  # end
 
     run!
 end
