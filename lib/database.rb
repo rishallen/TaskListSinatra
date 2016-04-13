@@ -30,7 +30,14 @@ module TaskList
     end
 
     def get_tasks
-      @db.execute( "SELECT * FROM tasks;" )
+      @db.execute( "SELECT title, description FROM tasks;" )
+    end
+
+    def add_completion(completed_at = nil )
+      @db.execute( "INSERT into tasks (completed_at) values ()?)", completed_at)
+    end
+    def get_finished_tasks
+      @db.execute( "SELECT title, completed_at FROM tasks;" )
     end
     # insert_statement = <<-INSERTSTATEMENT
     #   INSERT INTO tasks (

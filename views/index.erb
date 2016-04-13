@@ -6,7 +6,12 @@
   <%@tasks.each do |task| %>
 
   <input type="checkbox" name="complete[<%= [Time.new]%>]" value="<%=task%>">
-  <%= [Time.new]%>
+  <h2><%=task[0]%></h2> <br />
+  <ul>
+    <li>
+      <%=task[1]%><br /><br />      
+    </li>
+  </ul>
   <% end %>
 
 </form>
