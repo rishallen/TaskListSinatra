@@ -1,22 +1,38 @@
-
+<div class="params">
 <%= @tasks %>
 
-<%if @tasks.length != 0%>
-<h1>TO DO LIST 😮</h1>
-<table>
-  <tr class="tableheader">
-    <td> check😮</td>
-    <td>TITLE</td>
-    <td>DESCRIPTION</td>
-  </tr>
-  <form action="" method="post">
-    <%@tasks.each do |task| %>
-  <tr>
-    <td><input type="checkbox" name="complete[<%= [Time.new]%>]" value="<%=task%>"></td>
-    <td><%=task[0]%></td>
-    <td><%=task[1]%></td>
+</div>
+
+
+
+  <h1>TO DO LIST</h1>
+  <table>
+    <tr class="tableheader">
+      <td> &#9824;</td>
+      <td>TITLE</td>
+      <td>DESCRIPTION</td>
+      <td>DELETE</td>
+    </tr>
+    <form action="" method="post">
+      <%@tasks.each do |task| %>
+    <tr>
+      <td><input type="checkbox" name="complete[<%= [Time.new]%>]" value="<%=task%>"></td>
+      <td><%=task[0]%></td>
+      <td><%=task[1]%></td>
+      <td><input type="checkbox" name="deleted[<%=task[2]%>]" value="<%=task[2]%>"></td>
       <% end %>
-  </tr>
-</table>
-</form>
-<% end %>
+    </tr>
+  </table>
+  </form>
+
+
+
+<!-- this is the delete button on the homepage-->
+<section>
+  <form action="/" method="post" accept-charset="UTF-8">
+    <input type="submit" value="Delete"></a>
+  </form>
+</section>
+
+<footer>
+</footer>
