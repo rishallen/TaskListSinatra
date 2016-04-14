@@ -46,9 +46,15 @@ module TaskList
       @db.execute("DELETE FROM tasks WHERE id = ?;", deleted[0].to_i)
     end
 
-    def edit(edit = nil)
-      @db.execute("UPDATE tasks SET title = ?, description = ? WHERE id = ?;", title, description, edit[0].to_i)
+    def get_tasks_by_id(edits = nil)
+      @db.execute( "SELECT title, description, id FROM tasks WHERE id = ?;", edits[0].to_i)
     end
+
+    def edit_tasks(title, description = nil, id = nil)
+      @db.execute("UPDATE tasks SET title = ?, description = ? WHERE id = ?;", title, description, id.to_i)
+    end
+
+
     # insert_statement = <<-INSERTSTATEMENT
     #   INSERT INTO tasks (
     #     title, description, completed_at

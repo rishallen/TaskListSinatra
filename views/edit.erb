@@ -1,23 +1,22 @@
-<!-- this will have a form that will allow the user to edit their stuff -->
-<!-- <div class="params">
-  <%= params['task_list'] %>
-
-</div>
+  <!--this will have a form that will allow the user to edit their stuff -->
+ <div class="params">
+ </div>
 
 
 
-<section>
-  <form action="/task-form" method="post" accept-charset="UTF-8">
-  <fieldset>
-    <legend>Task List Input Field</legend>
-    <label for="list">Insert Task Here: </label>
-    <input placeholder="task" type="text" name="task_list[title]" value="" id="list">
-    <input placeholder="description" type="text" name="task_list[description]" value="" id="list">
-  </fieldset>
+  <section>
+    <form action="/update" method="post" accept-charset="UTF-8">
+    <fieldset>
+      <legend>Task List Input Field</legend>
+      <label for="list">Insert Task Here: </label>
+      <input placeholder="task" type="text" name="task_list[title]" value="<%=@edittasks[0][0]%>" id="list">
+      <input placeholder="description" type="text" name="task_list[description]" value="<%=@edittasks[0][1]%>" id="list">
+    </fieldset>
 
-    <input type="submit" value="Submit"></a>
-  </form>
-</section>
+      <input type="submit" value="Submit"></a>
+        <input type="hidden" name="task_list[id]" value="<%=@edittasks[0][2]%>"></form></td>
+    </form>
+  </section>
 
-<footer>
-</footer> -->
+  <footer>
+  </footer>

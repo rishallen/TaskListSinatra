@@ -18,12 +18,12 @@ class TaskInput < Sinatra::Base
     erb :index
   end
 
-  post '/delete' do
+  post '/' do
     current_database.delete(params[:deleted])
+    # erb :index
     redirect '/'
   end
 
-  post '/'
   # Step 1: Browser asks for the form
   get '/task-form' do
     erb :'task-form'
@@ -36,6 +36,16 @@ class TaskInput < Sinatra::Base
 
     # Step 4: We tell the browser that it should go to the homepage
     redirect '/'
+  end
+
+  post '/update' do
+    current_database.edit_tasks(params[:task_list][:title], params[:task_list][:description], params[:task_list][:id])
+    redirect '/'
+  end
+
+  post '/edit' do
+    @edittasks = current_database.get_tasks_by_id(params[:edits])
+    erb :edit
   end
 
     run!
