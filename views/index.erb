@@ -1,9 +1,7 @@
 <div class="params">
 </div>
 
-
 <section>
-
   <!-- <h1>TO DO LIST</h1> -->
 
   <%if @tasks != nil%>
@@ -15,7 +13,6 @@
       <td></td>
       <td></td>
     </tr>
-    <form action="" method="post">
       <%@tasks.each do |task| %>
     <tr>
       <td><input type="checkbox" name="complete[<%= [Time.new]%>]" value="<%=task%>"></td>
@@ -24,13 +21,12 @@
       <td><form action="/edit" method="post" accept-charset="UTF-8">
         <input type="submit" value="edit"></a>
         <input type="hidden" name="edits[]" value="<%=task[2]%>"></form></td>
-      <td><form action="/" method="post" accept-charset="UTF-8">
+      <td><form action="/delete" method="post" accept-charset="UTF-8">
         <input type="submit" value="delete" onclick="return confirm('Confirm Delete?')"></a>
         <input type="hidden" name="deleted[]" value="<%=task[2]%>"></form></td>
 
       <% end %>
   </table>
-  </form>
   <% end %>
 
 </section>

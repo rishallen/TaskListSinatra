@@ -12,7 +12,7 @@ class TaskInput < Sinatra::Base
       request.path_info == '/' + path
     end
   end
-  
+
   # @tasks = TaskList::Database.new.create_schema!
   def current_database
     @current_db ||= TaskList::Database.new
@@ -25,9 +25,17 @@ class TaskInput < Sinatra::Base
   end
 
   post '/' do
-    current_database.delete(params[:deleted])
-    # erb :index
     redirect '/'
+  end
+
+  post '/delete' do
+    current_database.delete(params[:deleted])
+    redirect '/'
+  end
+
+  post '/edit' do
+    @edittasks = current_database.get_tasks_by_id(params[:edits])
+    erb :edit
   end
 
   # Step 1: Browser asks for the form
@@ -49,10 +57,7 @@ class TaskInput < Sinatra::Base
     redirect '/'
   end
 
-  post '/edit' do
-    @edittasks = current_database.get_tasks_by_id(params[:edits])
-    erb :edit
-  end
+
 
     run!
 end
