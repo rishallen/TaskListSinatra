@@ -42,8 +42,8 @@ module TaskList
       @db.execute( "SELECT title, completed_at FROM tasks;" )
     end
 
-    def delete_task(id = nil)
-      @db.execute("DELETE FROM tasks WHERE id = <%=id.to_i%>")
+    def delete(deleted = nil)
+      @db.execute("DELETE FROM tasks WHERE id = ?", deleted[0].to_i)
     end
 
     # insert_statement = <<-INSERTSTATEMENT

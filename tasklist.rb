@@ -19,10 +19,8 @@ class TaskInput < Sinatra::Base
   end
 
   post '/' do
-    current_database.(params[:deleted].each do |key, value|
-      current_database.delete(params[:delete][:"#{key}"]))
+      current_database.delete(params[:deleted])
     erb :index
-    end
   end
 
   # Step 1: Browser asks for the form

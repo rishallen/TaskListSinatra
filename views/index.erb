@@ -1,11 +1,13 @@
 <div class="params">
-<%= @tasks %>
+
 
 </div>
 
 
 
   <h1>TO DO LIST</h1>
+
+  <%if @tasks != nil%>
   <table>
     <tr class="tableheader">
       <td> &#9824;</td>
@@ -19,20 +21,15 @@
       <td><input type="checkbox" name="complete[<%= [Time.new]%>]" value="<%=task%>"></td>
       <td><%=task[0]%></td>
       <td><%=task[1]%></td>
-      <td><input type="checkbox" name="deleted[<%=task[2]%>]" value="<%=task[2]%>"></td>
+      <td><form action="/" method="post" accept-charset="UTF-8">
+          <input type="submit" value="delete" onclick="return confirm('Confirm Delete?')"></a>
+          <!-- this is the delete button on the homepage-->
+      <input type="hidden" name="deleted[]" value="<%=task[2]%>"></form></td>
       <% end %>
-    </tr>
+    <!-- </tr> -->
   </table>
   </form>
-
-
-
-<!-- this is the delete button on the homepage-->
-<section>
-  <form action="/" method="post" accept-charset="UTF-8">
-    <input type="submit" value="Delete"></a>
-  </form>
-</section>
+  <% end %>
 
 <footer>
 </footer>
