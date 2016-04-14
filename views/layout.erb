@@ -6,7 +6,17 @@
     <link rel="stylesheet" type="CSS" href="stylesheets/index.css">
   </head>
   <body>
-
+    <header class="homeheader">
+        <h1>Tasks</h1>
+        <nav>
+          <ul>
+            <li><a href="/" class=<%="currentpage" if active_page?("")%>>home</a></li>
+            <li class="divider">|
+            </li>
+            <li><a href="/task-form" class=<%="currentpage" if active_page?("task-form")%>>add task</a></li>
+          </ul>
+        </nav>
+      </header>
     <%= yield %>
 
   </body>

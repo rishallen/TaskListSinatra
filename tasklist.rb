@@ -6,8 +6,14 @@ require 'date'
 # require_relative 'lib/query.rb'
 
 class TaskInput < Sinatra::Base
-  # @tasks = TaskList::Database.new.create_schema!
 
+  helpers do
+    def active_page?(path='')
+      request.path_info == '/' + path
+    end
+  end
+  
+  # @tasks = TaskList::Database.new.create_schema!
   def current_database
     @current_db ||= TaskList::Database.new
   end
