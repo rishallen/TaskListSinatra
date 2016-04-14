@@ -34,7 +34,7 @@ module TaskList
     end
 
     def add_completion(completed_at = nil)
-      @db.execute( "INSERT into tasks (completed_at) values (? )", completed_at)
+      @db.execute( "INSERT into tasks (completed_at) values (? );", completed_at)
     end
 
     # the server is getting the data and displaying on the webpage
@@ -43,9 +43,12 @@ module TaskList
     end
 
     def delete(deleted = nil)
-      @db.execute("DELETE FROM tasks WHERE id = ?", deleted[0].to_i)
+      @db.execute("DELETE FROM tasks WHERE id = ?;", deleted[0].to_i)
     end
 
+    def edit(edit = nil)
+      @db.execute("UPDATE tasks SET title = ?, description = ? WHERE id = ?;", title, description, edit[0].to_i)
+    end
     # insert_statement = <<-INSERTSTATEMENT
     #   INSERT INTO tasks (
     #     title, description, completed_at

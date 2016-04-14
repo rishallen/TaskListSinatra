@@ -18,11 +18,12 @@ class TaskInput < Sinatra::Base
     erb :index
   end
 
-  post '/' do
-      current_database.delete(params[:deleted])
-    erb :index
+  post '/delete' do
+    current_database.delete(params[:deleted])
+    redirect '/'
   end
 
+  post '/'
   # Step 1: Browser asks for the form
   get '/task-form' do
     erb :'task-form'
