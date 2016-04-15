@@ -2,6 +2,7 @@ require 'sinatra'
 require_relative 'lib/database.rb'
 require_relative 'lib/create_schema.rb'
 require 'date'
+require 'pry'
 
 # require_relative 'lib/query.rb'
 
@@ -56,6 +57,20 @@ class TaskInput < Sinatra::Base
     current_database.edit_tasks(params[:task_list][:title], params[:task_list][:description], params[:task_list][:id])
     redirect '/'
   end
+
+
+  get '/test' do
+    erb :test
+  end
+
+  post '/test' do
+    # if the checkbox has been clicked, then update the database
+    if params[:completed_at]
+      current_database.complete_task(params[:id])
+    end
+    redirect '/'
+  end
+
 
 
 
